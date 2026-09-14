@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Amir Youssef — Generative & Agentic AI Engineer</title>
+<meta name="description" content="Amir Youssef — Generative & Agentic AI Engineer. I turn AI and automation into practical results: intelligent workflows, Python automation, and AI-powered career tools.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f7f5f0;
+    --surface:#ffffff;
+    --surface-2:#fbfaf6;
+    --ink:#171b26;
+    --muted:#59617180;
+    --muted-solid:#5b6474;
+    --line:#e9e4d8;
+    --accent:#4f46e5;      /* indigo */
+    --accent-ink:#3730a3;
+    --accent-soft:#eef0fe;
+    --gold:#c0873f;         /* subtle brand echo */
+    --gold-soft:#f6efe2;
+    --radius:18px;
+    --shadow:0 6px 24px rgba(23,27,38,.07);
+    --shadow-lg:0 18px 50px rgba(23,27,38,.12);
+    --maxw:1080px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto} *{animation:none!important;transition:none!important}}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:'Inter',system-ui,-apple-system,sans-serif;
+    line-height:1.65; -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4,.font-head{font-family:'Sora','Inter',sans-serif; line-height:1.15; letter-spacing:-.01em}
+  a{color:inherit; text-decoration:none}
+  img{max-width:100%; display:block}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 24px}
+  .eyebrow{font-family:'Sora'; font-weight:600; font-size:.74rem; letter-spacing:.16em; text-transform:uppercase; color:var(--accent)}
+  section{padding:84px 0}
+  .sec-head{max-width:640px; margin-bottom:40px}
+  .sec-head h2{font-size:clamp(1.7rem,3.4vw,2.4rem); font-weight:700; margin:10px 0 8px}
+  .sec-head p{color:var(--muted-solid); font-size:1.05rem; margin:0}
+
+  /* Buttons */
+  .btn{display:inline-flex; align-items:center; gap:9px; font-family:'Sora'; font-weight:600; font-size:.98rem; padding:13px 24px; border-radius:12px; cursor:pointer; border:1.5px solid transparent; transition:transform .15s ease, box-shadow .15s ease, background .15s}
+  .btn-primary{background:var(--accent); color:#fff; box-shadow:0 8px 20px rgba(79,70,229,.28)}
+  .btn-primary:hover{transform:translateY(-2px); box-shadow:0 12px 26px rgba(79,70,229,.38)}
+  .btn-ghost{background:transparent; border-color:var(--line); color:var(--ink)}
+  .btn-ghost:hover{border-color:var(--accent); color:var(--accent)}
+  a:focus-visible,button:focus-visible{outline:3px solid var(--accent); outline-offset:3px}
+
+  /* Nav */
+  header.nav{position:sticky; top:0; z-index:50; background:rgba(247,245,240,.82); backdrop-filter:blur(10px); border-bottom:1px solid var(--line)}
+  .nav-inner{display:flex; align-items:center; justify-content:space-between; height:66px}
+  .logo{font-family:'Sora'; font-weight:800; font-size:1.1rem; letter-spacing:-.02em}
+  .logo b{color:var(--accent)}
+  .nav-links{display:flex; align-items:center; gap:28px}
+  .nav-links a{font-family:'Sora'; font-weight:500; font-size:.92rem; color:var(--muted-solid)}
+  .nav-links a:hover{color:var(--ink)}
+  .nav-cta{padding:9px 18px; font-size:.88rem}
+  .burger{display:none; background:none; border:0; cursor:pointer; padding:8px}
+  .burger span{display:block; width:22px; height:2px; background:var(--ink); margin:4px 0; border-radius:2px; transition:.2s}
+
+  /* Hero */
+  .hero{padding:76px 0 64px; position:relative; overflow:hidden}
+  .hero-grid{display:grid; grid-template-columns:1.35fr .9fr; gap:52px; align-items:center}
+  .hero h1{font-size:clamp(2.3rem,5.2vw,3.55rem); font-weight:800; margin:16px 0 18px}
+  .hero h1 .grad{background:linear-gradient(120deg,var(--accent),#7c73ff); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent}
+  .hero .lead{font-size:1.16rem; color:var(--muted-solid); margin:0 0 28px; max-width:520px}
+  .hero-cta{display:flex; flex-wrap:wrap; gap:14px}
+  .chips{display:flex; flex-wrap:wrap; gap:10px; margin-top:26px}
+  .chip{font-family:'Sora'; font-weight:500; font-size:.82rem; padding:7px 14px; background:var(--surface); border:1px solid var(--line); border-radius:999px; color:var(--muted-solid)}
+  .chip b{color:var(--ink)}
+  /* Photo */
+  .photo-wrap{justify-self:center; position:relative}
+  .photo{width:280px; height:340px; border-radius:24px; background:
+      radial-gradient(120% 120% at 20% 0%, #eef0fe 0%, #f6efe2 60%, #fff 100%);
+      border:1px solid var(--line); box-shadow:var(--shadow-lg); display:grid; place-items:center; overflow:hidden; position:relative}
+  .photo img{width:100%; height:100%; object-fit:cover}
+  .photo .ph-init{font-family:'Sora'; font-weight:800; font-size:4rem; color:var(--accent); opacity:.5}
+  .photo .ph-note{position:absolute; bottom:14px; left:0; right:0; text-align:center; font-size:.72rem; color:var(--muted-solid); font-family:'Sora'; padding:0 10px}
+  .photo-badge{position:absolute; bottom:-16px; right:-14px; background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:10px 16px; box-shadow:var(--shadow); font-family:'Sora'; font-size:.82rem; font-weight:600}
+  .photo-badge span{color:var(--accent)}
+
+  /* Generic card */
+  .card{background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:26px; box-shadow:var(--shadow)}
+
+  /* About */
+  .about-grid{display:grid; grid-template-columns:1.4fr 1fr; gap:40px; align-items:start}
+  .about p{color:#39404e; font-size:1.06rem; margin:0 0 16px}
+  .about .signature{font-family:'Sora'; font-weight:600; color:var(--accent)}
+  .facts{display:grid; gap:14px}
+  .fact{display:flex; gap:14px; align-items:flex-start; background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:16px 18px}
+  .fact .ic{font-size:1.25rem; line-height:1}
+  .fact b{font-family:'Sora'; display:block; font-size:.95rem}
+  .fact span{color:var(--muted-solid); font-size:.9rem}
+
+  /* Skills */
+  .skill-groups{display:grid; grid-template-columns:repeat(2,1fr); gap:20px}
+  .skill-card h3{font-family:'Sora'; font-size:1.05rem; margin:0 0 14px; display:flex; align-items:center; gap:10px}
+  .skill-card h3 .dot{width:9px; height:9px; border-radius:50%; background:var(--accent)}
+  .tags{display:flex; flex-wrap:wrap; gap:8px}
+  .tag{font-size:.85rem; padding:6px 12px; background:var(--accent-soft); color:var(--accent-ink); border-radius:8px; font-weight:500}
+  .skill-card:nth-child(2) .tag,.skill-card:nth-child(4) .tag{background:var(--gold-soft); color:#8a5e22}
+
+  /* Services */
+  .svc-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:20px}
+  .svc{position:relative; overflow:hidden}
+  .svc .num{font-family:'Sora'; font-weight:800; font-size:2.2rem; color:var(--accent-soft); position:absolute; top:16px; right:22px}
+  .svc h3{font-family:'Sora'; font-size:1.16rem; margin:0 0 8px}
+  .svc p{color:var(--muted-solid); margin:0; font-size:.98rem}
+
+  /* Projects */
+  .proj{display:grid; grid-template-columns:1fr; gap:0; margin-bottom:22px; overflow:hidden}
+  .proj-inner{display:grid; grid-template-columns:200px 1fr; gap:0}
+  .proj-visual{background:linear-gradient(150deg,var(--accent),#6d64f0); color:#fff; padding:26px; display:flex; flex-direction:column; justify-content:space-between; min-height:180px}
+  .proj:nth-child(even) .proj-visual{background:linear-gradient(150deg,#1f2637,#33405c)}
+  .proj-visual .kind{font-family:'Sora'; font-size:.72rem; letter-spacing:.12em; text-transform:uppercase; opacity:.85}
+  .proj-visual .big{font-family:'Sora'; font-weight:800; font-size:1.5rem; line-height:1.1}
+  .proj-body{padding:26px 28px}
+  .proj-body h3{font-family:'Sora'; font-size:1.22rem; margin:0 0 4px}
+  .proj-body .role{color:var(--accent); font-family:'Sora'; font-weight:600; font-size:.85rem; margin-bottom:10px}
+  .proj-body p{color:#39404e; margin:0 0 14px; font-size:.99rem}
+  .proj-body .outcome{display:inline-flex; align-items:center; gap:8px; background:var(--gold-soft); color:#8a5e22; font-family:'Sora'; font-weight:600; font-size:.85rem; padding:7px 14px; border-radius:9px}
+  .proj-tags{display:flex; flex-wrap:wrap; gap:7px; margin-top:14px}
+  .proj-tags span{font-size:.76rem; color:var(--muted-solid); border:1px solid var(--line); padding:4px 10px; border-radius:7px}
+
+  /* Timeline */
+  .tl{display:grid; gap:0}
+  .tl-item{display:grid; grid-template-columns:150px 1fr; gap:24px; padding:20px 0; border-bottom:1px solid var(--line)}
+  .tl-item:last-child{border-bottom:0}
+  .tl-when{font-family:'Sora'; font-weight:600; color:var(--muted-solid); font-size:.9rem}
+  .tl-what h4{font-family:'Sora'; font-size:1.05rem; margin:0 0 3px}
+  .tl-what .org{color:var(--accent); font-size:.9rem; font-weight:600; margin-bottom:6px}
+  .tl-what p{margin:0; color:var(--muted-solid); font-size:.95rem}
+
+  /* Achievements */
+  .ach-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
+  .ach{text-align:center; padding:28px 20px}
+  .ach .n{font-family:'Sora'; font-weight:800; font-size:2rem; color:var(--accent)}
+  .ach p{margin:6px 0 0; color:var(--muted-solid); font-size:.92rem}
+
+  /* Testimonials */
+  .quote{font-size:1.15rem; color:#2a3140; font-style:italic; margin:0 0 16px}
+  .quote-by{font-family:'Sora'; font-weight:600}
+  .quote-by span{color:var(--muted-solid); font-weight:500; font-style:normal}
+  .ph-tip{font-size:.8rem; color:var(--muted-solid); margin-top:14px; padding-top:14px; border-top:1px dashed var(--line)}
+
+  /* Contact */
+  .contact{background:linear-gradient(160deg,#1b2233,#2a3busy 100%); }
+  .contact{background:linear-gradient(160deg,#1b2233,#2b3purple)}
+  .contact{background:linear-gradient(160deg,#1b2233,#2c3654); color:#fff; border-radius:28px; padding:56px 40px; text-align:center; box-shadow:var(--shadow-lg)}
+  .contact h2{font-size:clamp(1.7rem,3.6vw,2.4rem); font-weight:800; margin:10px 0 12px}
+  .contact p{color:#c7cfe0; max-width:520px; margin:0 auto 28px}
+  .contact-links{display:flex; flex-wrap:wrap; gap:14px; justify-content:center}
+  .contact .btn-ghost{border-color:rgba(255,255,255,.28); color:#fff}
+  .contact .btn-ghost:hover{background:rgba(255,255,255,.1); border-color:#fff; color:#fff}
+
+  footer.site{padding:34px 0; text-align:center; color:var(--muted-solid); font-size:.88rem; font-family:'Sora'}
+
+  /* Reveal on scroll */
+  .reveal{opacity:0; transform:translateY(18px); transition:opacity .6s ease, transform .6s ease}
+  .reveal.in{opacity:1; transform:none}
+
+  /* Responsive */
+  @media (max-width:880px){
+    .hero-grid{grid-template-columns:1fr; gap:40px; text-align:center}
+    .hero-cta,.chips{justify-content:center}
+    .hero .lead{margin-inline:auto}
+    .photo-wrap{order:-1}
+    .about-grid{grid-template-columns:1fr; gap:28px}
+    .skill-groups,.svc-grid{grid-template-columns:1fr}
+    .proj-inner{grid-template-columns:1fr}
+    .proj-visual{min-height:120px; flex-direction:row; align-items:center; justify-content:space-between}
+    .ach-grid{grid-template-columns:1fr; gap:12px}
+    .tl-item{grid-template-columns:1fr; gap:6px}
+    .nav-links{position:fixed; inset:66px 0 auto 0; background:var(--surface); flex-direction:column; gap:0; padding:8px 0; border-bottom:1px solid var(--line); box-shadow:var(--shadow); display:none}
+    .nav-links.open{display:flex}
+    .nav-links a{padding:14px 24px; width:100%; font-size:1rem}
+    .nav-links .btn{margin:10px 24px}
+    .burger{display:block}
+  }
+  @media (max-width:520px){
+    section{padding:60px 0}
+    .contact{padding:40px 22px}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <div class="logo">Amir<b>.</b>Youssef</div>
+    <nav class="nav-links" id="navlinks" aria-label="Primary">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#services">Services</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a class="btn btn-primary nav-cta" href="#contact">Let's talk</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">Generative &amp; Agentic AI Engineer</span>
+      <h1>I turn AI &amp; automation into <span class="grad">practical results.</span></h1>
+      <p class="lead">From intelligent LLM workflows to Python automations and AI-powered career tools — I build solutions that ship and actually get used, not just demos.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#contact">Work with me →</a>
+        <a class="btn btn-ghost" href="#projects">See my work</a>
+      </div>
+      <div class="chips">
+        <span class="chip"><b>Bilingual</b> · Arabic &amp; English</span>
+        <span class="chip"><b>Python</b> &amp; Agentic AI</span>
+        <span class="chip"><b>Shipped</b> a live product</span>
+      </div>
+    </div>
+    <div class="photo-wrap">
+      <div class="photo">
+        <!-- To add your photo: put a file named photo.jpg next to this HTML,
+             then replace this whole .photo div's contents with:
+             <img src="photo.jpg" alt="Amir Youssef"> -->
+        <div class="ph-init">AY</div>
+        <div class="ph-note">Add photo.jpg &amp; swap this placeholder</div>
+      </div>
+      <div class="photo-badge">Open to <span>AI &amp; freelance</span> work</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">About</span>
+      <h2>Making AI genuinely useful.</h2>
+    </div>
+    <div class="about-grid about">
+      <div class="reveal">
+        <p>I'm Amir Youssef, a Computer Science &amp; AI graduate fascinated by one thing above all: making AI <strong>actually useful</strong> in the real world. My focus is Generative and Agentic AI — building LLM-powered workflows, automations, and tools that solve concrete problems instead of sitting in a demo.</p>
+        <p>I sharpened these skills through a Generative &amp; Agentic AI Systems internship (DEPI) and hands-on engineering work, where I built Python automations that turned hours of manual reporting into minutes. Alongside AI engineering, I create AI-powered career products and bilingual (Arabic/English) content that get measurable results for clients.</p>
+        <p>I care about clean solutions, honest work, and shipping things people actually use.</p>
+        <p class="signature">— Let's build something that delivers.</p>
+      </div>
+      <div class="facts reveal">
+        <div class="fact"><div class="ic">🎓</div><div><b>CS &amp; AI Graduate</b><span>Modern University for Technology &amp; Information (MTI)</span></div></div>
+        <div class="fact"><div class="ic">🤖</div><div><b>Generative &amp; Agentic AI</b><span>DEPI internship — LLMs, agents, automation</span></div></div>
+        <div class="fact"><div class="ic">🌍</div><div><b>Bilingual delivery</b><span>Fluent Arabic &amp; English</span></div></div>
+        <div class="fact"><div class="ic">🚀</div><div><b>Ships real work</b><span>Live product + client results</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SKILLS ===== -->
+<section id="skills" style="background:var(--surface-2); border-top:1px solid var(--line); border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Skills</span>
+      <h2>What I work with.</h2>
+      <p>Core competencies across AI engineering, automation, and the tools that ship real solutions.</p>
+    </div>
+    <div class="skill-groups">
+      <div class="card skill-card reveal"><h3><span class="dot"></span>AI &amp; Machine Learning</h3><div class="tags"><span class="tag">Generative AI</span><span class="tag">Agentic AI / LLM workflows</span><span class="tag">Prompt Engineering</span><span class="tag">RAG concepts</span><span class="tag">Python</span></div></div>
+      <div class="card skill-card reveal"><h3><span class="dot"></span>Automation &amp; Data</h3><div class="tags"><span class="tag">Python scripting</span><span class="tag">Pandas</span><span class="tag">Data pipelines</span><span class="tag">Excel automation</span><span class="tag">Git</span></div></div>
+      <div class="card skill-card reveal"><h3><span class="dot"></span>Career Tech</h3><div class="tags"><span class="tag">ATS optimization</span><span class="tag">LaTeX</span><span class="tag">LinkedIn optimization</span></div></div>
+      <div class="card skill-card reveal"><h3><span class="dot"></span>Creative &amp; Other</h3><div class="tags"><span class="tag">Graphic design</span><span class="tag">Video editing</span><span class="tag">Voiceover</span><span class="tag">Arabic/English</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SERVICES ===== -->
+<section id="services">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Services</span>
+      <h2>How I can help you.</h2>
+      <p>Practical, outcome-focused services for teams and individuals.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="card svc reveal"><div class="num">01</div><h3>AI &amp; Agentic Automation</h3><p>LLM-powered workflows, chatbots, tool-using agents, and prompt pipelines that automate real tasks and save hours.</p></div>
+      <div class="card svc reveal"><div class="num">02</div><h3>Python Data &amp; Reporting Automation</h3><p>Scripts and pipelines that clean, filter, and transform data into polished, ready-to-use reports — automatically.</p></div>
+      <div class="card svc reveal"><div class="num">03</div><h3>AI-Powered Career Tools</h3><p>ATS-friendly CVs in LaTeX, LinkedIn optimization, and complete job-application systems — in Arabic and English.</p></div>
+      <div class="card svc reveal"><div class="num">04</div><h3>AI Content &amp; Digital Products</h3><p>Writing, design, and packaging of AI-assisted digital products, from first idea to a live, sellable deliverable.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROJECTS ===== -->
+<section id="projects" style="background:var(--surface-2); border-top:1px solid var(--line); border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Projects</span>
+      <h2>Selected work.</h2>
+      <p>Real projects, each with a problem and a measurable outcome.</p>
+    </div>
+
+    <div class="card proj reveal">
+      <div class="proj-inner">
+        <div class="proj-visual"><div class="kind">Automation · Python</div><div class="big">One-click reports</div></div>
+        <div class="proj-body">
+          <h3>Automated Reporting Pipeline</h3>
+          <div class="role">Python · Batch · Data Processing</div>
+          <p>Built a reusable Python and batch pipeline that processes raw survey-export files — filtering by date, resolution type, and channel — and outputs a clean, styled Excel report automatically. Engineered it to key off the data's own most-recent dates rather than the system clock, so it runs reliably any time after export.</p>
+          <span class="outcome">✦ Replaced a manual, repetitive task with a one-click, error-resistant process</span>
+          <div class="proj-tags"><span>Python</span><span>Pandas</span><span>Automation</span><span>Excel</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card proj reveal">
+      <div class="proj-inner">
+        <div class="proj-visual"><div class="kind">Product · AI</div><div class="big">Beat the Bots</div></div>
+        <div class="proj-body">
+          <h3>"Beat the Bots" — AI Job-Application Product</h3>
+          <div class="role">Product · AI Content · Design · Bilingual</div>
+          <p>Designed, wrote, and shipped a complete digital product: an ATS-focused, AI-powered job-application guide with a copy-paste prompt library — in both English and Arabic editions. Built the covers, a custom conversion-focused landing page, and published it live on Gumroad.</p>
+          <span class="outcome">✦ Idea → live storefront: end-to-end product built and shipped</span>
+          <div class="proj-tags"><span>Generative AI</span><span>Product</span><span>Design</span><span>Arabic + English</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card proj reveal">
+      <div class="proj-inner">
+        <div class="proj-visual"><div class="kind">Client work · Career tech</div><div class="big">ATS ~90/100</div></div>
+        <div class="proj-body">
+          <h3>Bilingual ATS CV &amp; LinkedIn Optimization</h3>
+          <div class="role">LaTeX · ATS · Client Delivery</div>
+          <p>Rebuilt a professional's CV in LaTeX with full ATS optimization for international (Gulf) applications. Tailored structure, keywords, and formatting to pass automated screening while staying clean and recruiter-ready.</p>
+          <span class="outcome">✦ Raised the CV's ATS-match score to ~90/100</span>
+          <div class="proj-tags"><span>LaTeX</span><span>ATS optimization</span><span>LinkedIn</span><span>Bilingual</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== EXPERIENCE + EDUCATION ===== -->
+<section id="experience">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Experience &amp; Education</span>
+      <h2>The path so far.</h2>
+    </div>
+    <div class="tl">
+      <div class="tl-item reveal">
+        <div class="tl-when">2025 — Present</div>
+        <div class="tl-what"><h4>Generative &amp; Agentic AI Systems — Intern</h4><div class="org">Digital Egypt Pioneers Initiative (DEPI)</div><p>Training and hands-on work in LLM workflows, agentic systems, and applied AI — the foundation of my AI engineering focus.</p></div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-when">Present</div>
+        <div class="tl-what"><h4>PC Technical Support Engineer</h4><div class="org">IBM</div><p>Troubleshooting, system maintenance, and support — where I also built Python automations that streamlined repetitive reporting work.</p></div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-when">Freelance</div>
+        <div class="tl-what"><h4>AI-Powered CV &amp; Career Services</h4><div class="org">Independent</div><p>Bilingual ATS CV writing, LinkedIn optimization, and a published digital product for job-seekers.</p></div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-when">Graduated</div>
+        <div class="tl-what"><h4>B.Sc. in Computer Science &amp; Artificial Intelligence</h4><div class="org">Modern University for Technology &amp; Information (MTI)</div><p>Foundations in software, machine learning, and AI.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ACHIEVEMENTS ===== -->
+<section id="achievements" style="background:var(--surface-2); border-top:1px solid var(--line); border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head reveal" style="margin-inline:auto; text-align:center">
+      <span class="eyebrow">Highlights</span>
+      <h2>Proof, not promises.</h2>
+    </div>
+    <div class="ach-grid">
+      <div class="card ach reveal"><div class="n">~90/100</div><p>ATS score achieved on a client's optimized CV</p></div>
+      <div class="card ach reveal"><div class="n">2</div><p>Languages I write &amp; deliver in (Arabic &amp; English)</p></div>
+      <div class="card ach reveal"><div class="n">Live</div><p>Digital product shipped &amp; published on Gumroad</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TESTIMONIALS ===== -->
+<section id="testimonials">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Testimonials</span>
+      <h2>What clients say.</h2>
+    </div>
+    <div class="card reveal" style="max-width:760px">
+      <p class="quote">"Add a real client quote here — one or two sentences about the result you delivered and what it was like to work with you."</p>
+      <div class="quote-by">Client Name <span>— Role, Company</span></div>
+      <p class="ph-tip">Placeholder — replace with a genuine testimonial. Tip: ask a happy client (e.g. a CV client) for one or two honest lines about the outcome. Never invent quotes.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section id="contact">
+  <div class="wrap">
+    <div class="contact reveal">
+      <span class="eyebrow" style="color:#9aa6ff">Get in touch</span>
+      <h2>Ready to put AI to work for you?</h2>
+      <p>Whether you need an automation built, a job-winning CV, or an AI product shipped — let's talk. I usually reply within a day.</p>
+      <div class="contact-links">
+        <a class="btn btn-primary" href="mailto:amiirsyoussef@gmail.com">✉ Email me</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/REPLACE-ME" target="_blank" rel="noopener">in · LinkedIn</a>
+        <a class="btn btn-ghost" href="https://amiirsyoussef.gumroad.com" target="_blank" rel="noopener">🛍 My products</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">© <span id="yr"></span> Amir Youssef · Generative &amp; Agentic AI Engineer</div>
+</footer>
+
+<script>
+  // year
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  // mobile menu
+  var burger=document.getElementById('burger'), links=document.getElementById('navlinks');
+  burger.addEventListener('click',function(){
+    var open=links.classList.toggle('open');
+    burger.setAttribute('aria-expanded',open);
+  });
+  links.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){links.classList.remove('open');burger.setAttribute('aria-expanded',false);});});
+  // reveal on scroll
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+</script>
+</body>
+</html>
